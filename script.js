@@ -153,9 +153,4 @@ btn.addEventListener('click', (days, month, year) => {
     inCorrect()
 
 
-    //почему  m на значении 12
-
-
-
-
 })

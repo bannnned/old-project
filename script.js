@@ -5,6 +5,7 @@ let monthH = document.getElementById('month')
 let yearH = document.getElementById('year')
 
 let showAge = document.getElementById('show-age')
+let showAge2 = document.getElementById('show-age-2')
 
 const btn = document.getElementById('calc-btn')
 
@@ -35,10 +36,19 @@ btn.addEventListener('click', (days, month, year) => {
         if (parseInt(days) <= 0 || parseInt(month) <= 0 || parseInt(year) <= 0) {
             showAge.innerText = 'Please enter your correct Date of Birth'
         }
-    }
+        
+        if (parseInt(days) > maxDays || parseInt(month) > 12) {
+            showAge.innerText = 'Please enter your correct Date of Birth'
+        }
 
-    console.log(typeof (daysH.value))
-    console.log(parseInt(days) <= 0)
+        if (parseInt(year) > y) {
+            showAge.innerText = 'Sorry, you are not born yet'
+        }
+        if (parseInt(year) < y) {
+            showAge2.innerText = 'This person is quite old, huh?'
+        }
+
+    }
 
     switch (m == m) {
         case m == 1:
@@ -90,7 +100,6 @@ btn.addEventListener('click', (days, month, year) => {
             monthNum = 12;
             break;
     }
-    console.log(maxDays)
     // leap years
 
     // Easy and short way
@@ -133,7 +142,6 @@ btn.addEventListener('click', (days, month, year) => {
         ageInMonths = m - month
     }
 
-
     let ageInDays = d - parseInt(days)
 
     if (parseInt(days) < d) {
@@ -143,12 +151,7 @@ btn.addEventListener('click', (days, month, year) => {
         ageInDays = maxDays + ageInDays - 1
     }
 
-
-
-
     showAge.innerText = `You are ${ageInYears} years and ${ageInMonths} months and ${ageInDays} days old`
-
-    console.log(maxDays, monthNum)
 
     inCorrect()
 
